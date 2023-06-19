@@ -1,10 +1,34 @@
-var activePlayer = 0;
-
-var scores = [0, 0];
-
-var roundScore = 0;
+var activePlayer ,scores,roundScore;
 
 
+var diceDom = document.querySelector(".dice");
+
+newGame();
+
+function newGame(){
+    scores= [0,0];
+    activePlayer= 0;
+    roundScore = 0;
+    document.getElementById("score-0").textContent= '0';
+    document.getElementById("score-1").textContent= '0';
+    document.getElementById("name-0").textContent = "Player 1";
+    document.getElementById("name-1").textContent = "Player 2";
+
+    document.querySelector(".player-0-panel").classList.remove("winner");
+    document.querySelector(".player-1-panel").classList.remove("winner");
+
+    document.querySelector(".player-0-panel").classList.remove("active");
+    document.querySelector(".player-1-panel").classList.remove("active");
+  
+    document.querySelector(".player-0-panel").classList.add("active");
+
+    document.getElementById("current-0").textContent = '0';
+    document.getElementById("current-1").textContent = '0';
+    diceDom.style.display = "none";
+
+};
+
+document.querySelector(".btn-new").addEventListener("click",newGame)
 
 // <div class="player-score" id="score-0">43</div>
 // window.document.querySelector("#score-0").textContent = dice;
@@ -17,7 +41,6 @@ document.getElementById("score-1").textContent= '0';
 
 document.getElementById("current-0").textContent = '0';
 document.getElementById("current-1").textContent = '0';
-var diceDom = document.querySelector(".dice");
 diceDom.style.display = "none";
 
 
@@ -82,3 +105,6 @@ function switchToNextPlayer(){
     
     diceDom.style.display = "none";
 }
+
+
+//start new game
